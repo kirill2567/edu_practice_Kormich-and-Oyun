@@ -53,8 +53,8 @@
 *Рис.13 Перевод интерфейса в режим транка*
 
 ## Шаг 12. Настройка динамического MOTD для SW0 и SW1 
-<img width="566" height="36" alt="image" src="https://github.com/user-attachments/assets/1f3a151c-1d02-480b-840d-8e1030834d46" />
-<img width="519" height="39" alt="image" src="https://github.com/user-attachments/assets/6d096c0e-c0ef-4f49-b149-3acce0194d98" />
+<img width="553" height="37" alt="image" src="https://github.com/user-attachments/assets/5de211f0-7062-41c6-a2df-09cb77b2c304" />
+<img width="545" height="28" alt="image" src="https://github.com/user-attachments/assets/521ba20b-aed8-4ec5-8fd4-9776e27905fb" />
 
 *Рис.14,15 Настройка динамического баннера*
 

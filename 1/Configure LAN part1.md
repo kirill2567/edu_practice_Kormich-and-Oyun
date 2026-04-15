@@ -1,7 +1,7 @@
 # Часть 1
 ## Шаг 1. Построили сеть с топологией согласно схеме. 
 <img width="2122" height="868" alt="image" src="https://github.com/user-attachments/assets/c40b8c73-b46e-4583-b791-298a5bbbfc3f" />
-* Рис.1 Топология сети*
+*Рис.1 Топология сети*
 
 ## Шаг 2. Создали сообщение дня banner motd "Work is create Kormich Kirill Evgenevich and Oyun Ertine Viktorovich students is 9SA-321 group in the magazine under the number 14 and 19"
 <img width="793" height="272" alt="image" src="https://github.com/user-attachments/assets/918801ef-5b20-43df-afca-b82e5888e48b" />

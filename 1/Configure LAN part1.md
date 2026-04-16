@@ -84,6 +84,198 @@
 *Рис.20 Увеличение размера буфера истории команд до 256и строк*
 
 
+# Часть 2
 
+## Шаг 1. Настройка интерфейса связи с Москвой 
+<img width="596" height="146" alt="image" src="https://github.com/user-attachments/assets/0e706ae1-271e-47c4-9154-cebae16e0460" />
+
+*Рис.21 Назначение IP-адреса на физ. интерфейс*
+
+## Шаг 2. Настройка Router-on-a-Stick
+<img width="629" height="477" alt="image" src="https://github.com/user-attachments/assets/5bf8d6d1-31e8-4231-b1e3-bf502f70ce05" />
+
+*Рис.22 Настройка технологии Router-on-a-Stick на интерфейсе f0/0*
+
+## Шаг 3. Настройка DHCP-сервера 
+<img width="454" height="145" alt="image" src="https://github.com/user-attachments/assets/2d3e50e3-4689-4314-878e-b6321f347e25" />
+
+*Рис.23 Настройка исключений IP-адресов для соблюдения диапозона*
+
+<img width="325" height="246" alt="image" src="https://github.com/user-attachments/assets/6cc39f7b-0649-4aa3-8d02-48b025458194" />
+
+*Рис.24 Настройка конфигурации DCHP-пулов*
+
+## Шаг 4. Проверка связности (ping) 
+<img width="427" height="235" alt="image" src="https://github.com/user-attachments/assets/0e37e4f5-5f2a-44c4-8a26-3c9c198e348f" />
+
+*Рис.25 Проверка сетевого взаимодействия* 
+
+
+# Часть 3
+
+## Шаг 1. Настройка имени устройства 
+<img width="440" height="74" alt="image" src="https://github.com/user-attachments/assets/f73a6ff0-4b29-4d2b-83be-fe9604a6a3dc" />
+
+*Рис.26 Переименование устройства* 
+
+## Шаг 2. Включение функций маршрутизации 
+<img width="260" height="33" alt="image" src="https://github.com/user-attachments/assets/87d1e938-b8bf-499d-89a5-d11464f16eb8" />
+
+*Рис.27 Активация функций маршрутизации 3-го уровня* 
+
+## Шаг 3. Создание VLAN и назначение имён 
+<img width="289" height="109" alt="image" src="https://github.com/user-attachments/assets/b32c733c-7a4b-42a2-85bc-ce059d37c7be" />
+
+*Рис.28 Создание виртуальных локальных сетей* 
+
+## Шаг 4. Назначение интерфейсов в VLAN 
+
+<img width="366" height="127" alt="image" src="https://github.com/user-attachments/assets/b2191abb-a05d-4179-a682-f059319f37b0" />
+
+*Рис.29 Настройка интерфейсов* 
+
+## Шаг 5. Настройка межсетевой маршрутизации (SVI)*
+
+<img width="581" height="268" alt="image" src="https://github.com/user-attachments/assets/f2f8029f-2006-46a1-b4a7-6855b53c4550" />
+
+*Рис.30 Настройка виртальных интрейфесов коммутатора (SVI)*
+
+## Шаг 6. Настройка интерфейсов 3-го уровня (Router Ports) 
+
+<img width="605" height="270" alt="image" src="https://github.com/user-attachments/assets/43d5a945-c18f-4ea2-9d90-b3884c011e0f" />
+
+*Рис.31 Перевод физ. портов 1,2,3 в режим интерфейсов 3-го уровня с помощью команды no switchport*
+
+## Шаг 7. Проверка пингом устройств 
+
+<img width="445" height="179" alt="image" src="https://github.com/user-attachments/assets/f6798430-0f92-4612-98c0-bf7494a9011c" />
+<img width="324" height="123" alt="image" src="https://github.com/user-attachments/assets/797e3909-9f7c-44fe-a486-160a45f3daa5" />
+<img width="428" height="206" alt="image" src="https://github.com/user-attachments/assets/fda0f801-c30a-460e-8bfd-81cda9892755" />
+
+*Рис.32 Настройка IP на компьютере 6 и 7 и проверка пингом* 
+
+# Часть 4
+
+## Шаг 1. Конфигурация активного маршрутизатора R2
+
+<img width="464" height="454" alt="image" src="https://github.com/user-attachments/assets/d6699d5e-5128-4609-bed1-e2d3d25536b0" />
+
+*Рис.33 Настройка интерфейса fa0/1* 
+
+## Шаг 2. Конфигурация резервного маршрутизатора R3
+
+<img width="347" height="106" alt="image" src="https://github.com/user-attachments/assets/725cc722-4b83-40d6-b7a5-537ae6f83c6d" />
+
+*Рис.34 Настройка R3 в качестве резервоного маршрутизатора* 
+
+## Шаг 3. Настройка протокола Cisco High availability 
+
+<img width="291" height="87" alt="image" src="https://github.com/user-attachments/assets/6edc2b67-984d-4803-9b33-e79589cd0a37" />
+<img width="283" height="76" alt="image" src="https://github.com/user-attachments/assets/b11ebbeb-777c-4ce0-8e24-0fb60d642771" />
+
+ *Рис.35, 36 Настройка Cisco High availability для r2 и r3*
+
+# Часть 5
+
+## Шаг 1. Настройка EIGRP 
+
+На rus-nsk-r1
+
+<img width="254" height="72" alt="image" src="https://github.com/user-attachments/assets/686ca5c2-f8c0-4fe1-840e-ab862be659cf" />
+
+ *Рис.37 Настройка eigrp 100 на r1*
+
+На rus-msk-r2 
+
+<img width="255" height="100" alt="image" src="https://github.com/user-attachments/assets/3ec9937d-4e5c-48d9-98fb-c3f43557f609" />
+
+ *Рис.38 Настройка eigrp 100 на r2*
+
+На rus-msk-r3
+
+<img width="643" height="129" alt="image" src="https://github.com/user-attachments/assets/2e856ae4-8b3a-489c-ab11-88bbc054adac" />
+
+ *Рис.39 Настройка eigrp 100 на r3*
+
+На rus-msk-mls
+
+<img width="642" height="120" alt="image" src="https://github.com/user-attachments/assets/05041505-d6c6-4f2f-8d4d-639fb3d23ffd" />
+
+ *Рис.40 Настройка eigrp 100 на mls*
+
+## Шаг 2. Проверка с помощью SSH
+
+<img width="305" height="104" alt="image" src="https://github.com/user-attachments/assets/99708d51-e87b-4504-b275-f252799fd9e1" />
+<img width="320" height="110" alt="image" src="https://github.com/user-attachments/assets/d6b67e42-4bce-4360-90fe-36dccb0b00f3" />
+
+ *Рис.41, 42 Подключение sw1 и sw2 на сервере*
+
+## Шаг 3. Пропинговать с сервера 
+
+<img width="403" height="193" alt="image" src="https://github.com/user-attachments/assets/3b4dddcf-aa36-47e9-bd71-6970985a23cf" />
+
+ *Рис.43 Проверка подключения*
+
+# Часть 6
+
+## Шаг 1. Настройка SW 1,2  
+
+<img width="434" height="180" alt="image" src="https://github.com/user-attachments/assets/01370bec-4644-4baf-8739-41492d9047d0" />
+<img width="350" height="140" alt="image" src="https://github.com/user-attachments/assets/c4cf73be-8843-46d8-85a5-d09c23004056" />
+
+ *Рис.44 Ограничение ssh на sw 1,2*
+
+## Шаг 2. Настройка доступа к WEB-серверу
+
+<img width="475" height="241" alt="image" src="https://github.com/user-attachments/assets/205dd300-cef7-44d2-a99c-dbfef03013db" />
+
+ *Рис.45 Доступ к web-серверу на r1* 
+
+## Шаг 3. Запрет ответа на PING 
+
+<img width="376" height="193" alt="image" src="https://github.com/user-attachments/assets/c418cd99-7cb2-4445-8c2f-69f432efc275" />
+<img width="376" height="187" alt="image" src="https://github.com/user-attachments/assets/35eb6b69-487a-4bd7-87cd-36a34e56c231" />
+
+  *Рис.46 Запрет на пинг* 
+  
+# Часть 7
+
+## Шаг 1. Создание Loopbakc-интерфейса 
+
+<img width="554" height="184" alt="image" src="https://github.com/user-attachments/assets/2c6daccd-9798-4b95-8492-6193946ba7b6" />
+
+ *Рис.47 Loopback на r1*
+
+## Шаг 2. Создание Loopbakc-интерфейса 
+
+<img width="559" height="200" alt="image" src="https://github.com/user-attachments/assets/32489f50-df2d-40f1-9ae2-4d45d0c9cf28" />
+
+ *Рис.48 Loopback на r3* 
+
+## Шаг 3. Настройка RIPv2 
+
+<img width="277" height="99" alt="image" src="https://github.com/user-attachments/assets/2cb4e9c6-4d3e-4773-abe4-9870f1d4d041" />
+<img width="291" height="99" alt="image" src="https://github.com/user-attachments/assets/cfffb68f-d090-4043-bab7-a9649f99ef01" />
+
+ *Рис.49 Настройка RIPv2 на r1 и r3* 
+
+## Шаг 4.
+
+<img width="183" height="13" alt="image" src="https://github.com/user-attachments/assets/d674d280-1cb5-44c2-9652-8a8c172717c9" />
+<img width="245" height="21" alt="image" src="https://github.com/user-attachments/assets/c2426b17-3569-4a44-ac2f-64034b76d4e9" />
+
+
+## Шаг 5. IP адреса для туннелей 
+
+<img width="536" height="158" alt="image" src="https://github.com/user-attachments/assets/bdd2e351-f6ca-4211-a96e-f2278e5f005f" />
+<img width="556" height="191" alt="image" src="https://github.com/user-attachments/assets/d2c267ad-9de2-4e87-89ab-2cd0eaf8ac17" />
+
+ *Рис.50 настройка IP-адреса для туннелей на r1 и r3* 
+
+## Шаг 6.
+
+
+
+  
 
 

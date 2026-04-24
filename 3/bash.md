@@ -146,8 +146,82 @@ fi
 <img width="476" height="92" alt="image" src="https://github.com/user-attachments/assets/204235e9-b4f8-4cda-afab-a8a319843056" />
 
 
+## 10. finder_liight.sh
+## Скрипт который принимает имя файла в качестве аргумента 
+
+~~~
+#!/bin/bash
+file=$1
+if [ -L "$file" ]; then
+    echo "$file — это символическая ссылка."
+elif [ -d "$file" ]; then
+    echo "$file — это директория."
+elif [ -f "$file" ]; then
+    echo "$file — это обычный файл."
+else
+    echo "Объект не найден."
+fi
+~~~
+
+<img width="331" height="175" alt="image" src="https://github.com/user-attachments/assets/81a88887-0ad9-4685-b4e6-421efde7e2e5" />
 
 
+## 11. math.sh
+## Скрипт который принимает два числа в качестве аргумента 
+
+~~~
+#!/bin/bash
+if [ "$#" -ne 2 ]; then
+  echo "Ошибка: нужно ввести два числа."
+  exit 1
+fi
+
+NUM1=$1
+NUM2=$2
+
+SUM=$((NUM1 + NUM2))
+DIFF=$((NUM1 - NUM2))
+PROD=$((NUM1 * NUM2))
+
+echo "Сумма: $SUM"
+echo "Разность: $DIFF"
+echo "Произведение: $PROD"
+~~~
+
+<img width="219" height="79" alt="image" src="https://github.com/user-attachments/assets/11d732a0-a43a-4bc8-bf85-cdd54e271543" />
 
 
+## 12. sort.sh 
+## Скрипт который выводит все аргументы 
 
+~~~
+#!/bin/bash
+
+# Цикл проходит по всем аргументам, переданным скрипту
+for arg in "$@"
+do
+  echo "$arg"
+done
+~~~
+
+<img width="334" height="92" alt="image" src="https://github.com/user-attachments/assets/830ec377-6695-45c2-8b72-df47cf1df723" />
+
+## 13. io.sh 
+## Скрипт который принимает один аргумент 
+
+~~~
+#!/bin/bash
+if [ "$1" == "start" ]; then
+  echo "Starting..."
+elif [ "$1" == "stop" ]; then
+  echo "Stopping..."
+else
+  echo "Используйте start или stop"
+fi
+~~~
+
+<img width="219" height="172" alt="image" src="https://github.com/user-attachments/assets/a41d72a4-8e4c-4b7b-a6bb-55ecd2f2ed3e" />
+
+
+## 14. user_use.sh 
+## Скрипт который принимает один аргумент 

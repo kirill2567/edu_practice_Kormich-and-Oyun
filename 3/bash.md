@@ -99,15 +99,51 @@ fi
 
 
 
+## 7. user_light.sh
+## Скрипт который ищет вашего пользователя 
+
+~~~
+#!/bin/bash
+# Ищем текущего пользователя в файле passwd
+if grep -q "$USER" /etc/passwd; then
+    echo "Поздравляю! Пользователь $USER найден в системе."
+fi
+~~~
+
+<img width="428" height="67" alt="image" src="https://github.com/user-attachments/assets/71be6135-2bd5-49a5-9d7d-95f3557c758c" />
 
 
+## 8. user_f.sh
+## Скрипт который принимает имя пользоваетеля
+
+~~~
+#!/bin/bash
+username=$1
+if grep -q "$username" /etc/passwd; then
+    echo "Пользователь $username найден."
+else
+    echo "Пользователь $username не найден."
+fi
+~~~
+
+<img width="371" height="74" alt="image" src="https://github.com/user-attachments/assets/2bdd5740-76bd-4982-be03-364f26e72928" />
 
 
+## 9. user_f2.sh
+## Скрипт который создает файл в случае отсутсвия пользователя 
 
+~~~
+#!/bin/bash
+username=$1
+if grep -q "$username" /etc/passwd; then
+    echo "Пользователь $username нашелся."
+else
+    echo "Пользователь не найден."
+    touch "don_t_be_sad_user_${username}_will_be_there_soon.txt"
+fi
+~~~
 
-
-
-
+<img width="476" height="92" alt="image" src="https://github.com/user-attachments/assets/204235e9-b4f8-4cda-afab-a8a319843056" />
 
 
 

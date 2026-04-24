@@ -241,3 +241,40 @@ du -sh /home/* 2>/dev/null | sort -rh
 
 ## 15. sort_du.sh 
 ## Скрипт который сортирует
+
+~~~
+#!/bin/bash
+dir=${1:-.}
+find "$dir" -maxdepth 1 -type f -exec stat -c "%y %n" {} + | sort | head -n 3
+~~~
+
+<img width="435" height="77" alt="image" src="https://github.com/user-attachments/assets/b6dc1385-d515-4b42-ae50-8790b8d0ebd5" />
+
+
+## 16. dir_info.sh 
+## Скрипт который принимает путь к директории в качестве аргумента 
+
+~~~
+#!/bin/bash
+# [span_6](start_span)Определяем директорию[span_6](end_span)
+target_dir=${1:-.}
+
+# du -s (итог), -k (в килобайтах)
+# [span_7](start_span)awk формирует нужный формат вывода[span_7](end_span)
+du -sk "$target_dir" | awk '{print "Общий размер: " $1 " КВ"}'
+~~~
+
+<img width="175" height="198" alt="image" src="https://github.com/user-attachments/assets/0f79264c-ca7a-412f-a1df-e62717d88f73" />
+*GitBash не выводит числа*
+
+
+## 17. bash_history.sh 
+## Скрипт который анализирует историю команд
+
+~~~
+echo '#!/bin/bash
+history -a
+
+cat ~/.bash_history | awk "{print \$1}" | sort | uniq -c | sort -nr | head -n 5' > bash_history.sh
+~~~
+<img width="210" height="153" alt="image" src="https://github.com/user-attachments/assets/8832f09a-989d-4851-acc5-50d7231d2403" />

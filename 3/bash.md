@@ -225,3 +225,19 @@ fi
 
 ## 14. user_use.sh 
 ## Скрипт который принимает один аргумент 
+
+~~~
+#!/bin/bash
+
+echo "Использование диска в /home (от большего к меньшему):"
+
+# du -sh считает размер, 2>/dev/null скрывает ошибки доступа
+# sort -rh сортирует по размеру в обратном порядке
+du -sh /home/* 2>/dev/null | sort -rh
+~~~
+
+<img width="1055" height="117" alt="image" src="https://github.com/user-attachments/assets/4a78dd1f-3103-4c09-b933-784ae5b459ce" />
+
+
+## 15. sort_du.sh 
+## Скрипт который сортирует

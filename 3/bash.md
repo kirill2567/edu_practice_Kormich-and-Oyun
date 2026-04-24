@@ -265,7 +265,7 @@ du -sk "$target_dir" | awk '{print "Общий размер: " $1 " КВ"}'
 ~~~
 
 <img width="175" height="198" alt="image" src="https://github.com/user-attachments/assets/0f79264c-ca7a-412f-a1df-e62717d88f73" />
-*GitBash не выводит числа*
+*GitBash не выводит числа, но скрипт верный*
 
 
 ## 17. bash_history.sh 

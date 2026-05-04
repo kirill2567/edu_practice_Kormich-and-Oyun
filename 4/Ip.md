@@ -1,4 +1,4 @@
-# 2 Лабораторная работа №2. Базовая настройка IP-телефонов в среде Cisco Packet Tracer
+[RouterA_running-config.txt](https://github.com/user-attachments/files/27351111/RouterA_running-config.txt)# 2 Лабораторная работа №2. Базовая настройка IP-телефонов в среде Cisco Packet Tracer
 
 
 ## Порядок выполнения работы
@@ -304,3 +304,1804 @@
 ## Шаг 6. Проверка звонков 
 
 <img width="1406" height="718" alt="image" src="https://github.com/user-attachments/assets/e9368d68-b665-4ed0-b450-8acceab49d75" />
+
+# Лаборатнорная 2 
+
+## CMERouter
+~~~
+[CMERouter_running-config.txt](https://github.com/user-attachments/files/27350930/CMERouter_running-config.txt)
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname CMERouter
+!
+!
+!
+!
+!
+ip dhcp pool VOICE
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ option 150 ip 192.168.10.1
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017J79M-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.10.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+telephony-service
+ max-ephones 5
+ max-dn 5
+ ip source-address 192.168.10.1 port 2000
+ auto assign 1 to 5
+!
+ephone-dn 1
+ number 54001
+!
+ephone-dn 2
+ number 54002
+!
+ephone 1
+ device-security-mode none
+ mac-address 0030.F200.07AE
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 00D0.D382.A29B
+ type 7960
+ button 1:2
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+~~~
+
+## SwitchA
+~~~
+[SwitchA_running-config.txt](https://github.com/user-attachments/files/27350965/SwitchA_running-config.txt)
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SwitchA
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/2
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/3
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/4
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/5
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+~~~
+
+# Лабораторная 3
+
+## Router1
+~~~
+[Router1_running-config.txt](https://github.com/user-attachments/files/27350993/Router1_running-config.txt)
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname CMERouter
+!
+!
+!
+!
+!
+ip dhcp pool VOICE
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ option 150 ip 192.168.10.1
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017YMM1-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.10.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+telephony-service
+ max-ephones 5
+ max-dn 5
+ ip source-address 192.168.10.1 port 2000
+ auto assign 4 to 6
+ auto assign 1 to 5
+!
+ephone-dn 1
+ number 54001
+!
+ephone-dn 2
+ number 54002
+!
+ephone-dn 3
+ number 54003
+!
+ephone-dn 4
+ number 54004
+!
+ephone-dn 5
+ number 54005
+!
+ephone 1
+ device-security-mode none
+ mac-address 0002.4A39.88BD
+ type 7960
+ button 1:2
+!
+ephone 2
+ device-security-mode none
+ mac-address 0030.F221.8919
+ type 7960
+ button 1:3
+!
+ephone 3
+ device-security-mode none
+ mac-address 0001.6423.D876
+ type 7960
+ button 1:1
+!
+line con 0
+ password cisco
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ logging synchronous
+ login
+!
+!
+!
+end
+~~~
+
+## Multilayer Switch0
+~~~
+[Multilayer Switch0_running-config.txt](https://github.com/user-attachments/files/27351008/Multilayer.Switch0_running-config.txt)
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/2
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/3
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/4
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/5
+ switchport mode access
+ switchport voice vlan 1
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+!
+end
+~~~
+
+# Лабораторная 4
+
+## Router0
+~~~
+[Router0_running-config.txt](https://github.com/user-attachments/files/27351052/Router0_running-config.txt)
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+ip dhcp excluded-address 192.168.10.1
+ip dhcp excluded-address 192.168.2.1
+!
+ip dhcp pool DATA_POOL
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ip dhcp pool VOICE_POOL
+ network 192.168.2.0 255.255.255.0
+ default-router 192.168.2.1
+ option 150 ip 192.168.2.1
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017AAKX-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 2
+ ip address 192.168.2.1 255.255.255.0
+!
+interface FastEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+telephony-service
+ max-ephones 3
+ max-dn 3
+ ip source-address 192.168.2.1 port 2000
+ auto assign 1 to 3
+!
+ephone-dn 1
+ number 101
+!
+ephone-dn 2
+ number 102
+!
+ephone-dn 3
+ number 103
+!
+ephone 1
+ device-security-mode none
+ mac-address 0001.961A.2AE1
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 0001.974E.3033
+ type 7960
+ button 1:2
+!
+ephone 3
+ device-security-mode none
+ mac-address 00E0.8F71.4019
+ type 7960
+ button 1:3
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+~~~
+
+## Switc0
+~~~
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 2
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 2
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 2
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+~~~
+
+# Лабораторная 7
+
+## RouterA
+~~~
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname RouterA
+!
+!
+!
+!
+!
+ip dhcp pool VOICE
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ option 150 ip 192.168.10.1
+ip dhcp pool Voice
+ option 150 ip 192.168.10.1
+ip dhcp pool voice
+ network 192.168.1.0 255.255.255.224
+ default-router 192.168.1.1
+ option 150 ip 192.168.1.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX10179Y14-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.1.1 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ ip address 10.10.10.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/3/0
+ ip address 10.0.1.1 255.255.255.252
+!
+interface Serial0/3/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.1.0
+!
+ip classless
+ip route 192.168.20.0 255.255.255.0 10.10.10.2 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+dial-peer voice 1 voip
+ destination-pattern 1..
+ session target ipv4:10.0.1.2
+!
+telephony-service
+ max-ephones 5
+ max-dn 5
+ ip source-address 192.168.10.1 port 2000
+ auto assign 1 to 5
+!
+ephone-dn 1
+ number 101
+!
+ephone-dn 2
+ number 102
+!
+ephone-dn 3
+ number 103
+!
+ephone-dn 4
+ number 104
+!
+ephone-dn 5
+ number 105
+!
+ephone 1
+ device-security-mode none
+ mac-address 000C.8599.D5C4
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 00D0.D367.1216
+ type 7960
+ button 1:2
+!
+ephone 3
+ device-security-mode none
+ mac-address 000A.416E.9223
+ type 7960
+ button 1:3
+!
+ephone 4
+ device-security-mode none
+ mac-address 0002.1609.BB59
+ type 7960
+ button 1:4
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+~~~
+## RouterB
+~~~
+[RouterB_running-config.txt](https://github.com/user-attachments/files/27351125/RouterB_running-config.txt)
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname RouterB
+!
+!
+!
+!
+!
+ip dhcp pool VOICE_B
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ option 150 ip 192.168.20.1
+ip dhcp pool Voice
+ option 150 ip 192.168.20.1
+ip dhcp pool voice_B
+ network 172.16.1.0 255.255.255.224
+ default-router 172.16.1.1
+ option 150 ip 172.16.1.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017P34L-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 172.16.1.1 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ ip address 10.10.10.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/3/0
+ ip address 10.0.1.2 255.255.255.252
+ clock rate 2000000
+!
+interface Serial0/3/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 172.16.0.0
+!
+ip classless
+ip route 192.168.10.0 255.255.255.0 10.10.10.1 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+dial-peer voice 1 voip
+ destination-pattern 1..
+ session target ipv4:10.0.1.1
+!
+telephony-service
+ max-ephones 5
+ max-dn 5
+ ip source-address 192.168.20.1 port 2000
+ auto assign 1 to 5
+!
+ephone-dn 1
+ number 201
+!
+ephone-dn 2
+ number 202
+!
+ephone-dn 3
+ number 203
+!
+ephone-dn 4
+ number 204
+!
+ephone-dn 5
+ number 205
+!
+ephone 1
+ device-security-mode none
+ mac-address 0001.42BA.31B8
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 0005.5E77.C64C
+ type 7960
+ button 1:2
+!
+ephone 3
+ device-security-mode none
+ mac-address 00E0.8F6B.C028
+ type 7960
+ button 1:3
+!
+ephone 4
+ device-security-mode none
+ mac-address 0001.9731.A819
+ type 7960
+ button 1:4
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+~~~
+
+## SwitchAA
+~~~
+[SwitchAA_running-config.txt](https://github.com/user-attachments/files/27351160/SwitchAA_running-config.txt)
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SwitchA
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+~~~
+
+## SwitchBB
+~~~
+[SwitchBB_running-config.txt](https://github.com/user-attachments/files/27351180/SwitchBB_running-config.txt)
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SwitchB
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport mode access
+ switchport voice vlan 1
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+~~~
+
+# Лабораторная 8
+
+## CME
+~~~
+[cme_running-config.txt](https://github.com/user-attachments/files/27351217/cme_running-config.txt)
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname CMERouter
+!
+!
+!
+!
+ip dhcp excluded-address 10.30.1.1
+ip dhcp excluded-address 10.40.1.1
+!
+ip dhcp pool VOICE
+ network 10.30.1.0 255.255.255.0
+ default-router 10.30.1.1
+ option 150 ip 10.30.1.1
+ip dhcp pool DATA
+ network 10.40.1.0 255.255.255.0
+ default-router 10.40.1.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX101702D0-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.1
+ encapsulation dot1Q 40
+ ip address 10.40.1.1 255.255.255.0
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 30
+ ip address 10.30.1.1 255.255.255.0
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ ip address 82.115.34.210 255.255.255.252
+ clock rate 2000000
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router eigrp 100
+ network 82.0.0.0
+ network 10.0.0.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+dial-peer voice 1 voip
+ destination-pattern 2...
+ session target ipv4:82.115.34.209
+!
+telephony-service
+ max-ephones 10
+ max-dn 10
+ ip source-address 10.30.1.1 port 2000
+ auto assign 1 to 10
+!
+ephone-dn 1
+ number 1001
+!
+ephone-dn 2
+ number 1002
+!
+ephone 1
+ device-security-mode none
+ mac-address 00D0.9722.7B3C
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 0090.0C15.3E35
+ type 7960
+ button 1:2
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+~~~
+
+## CMEE
+~~~
+[CMEE_running-config.txt](https://github.com/user-attachments/files/27351225/CMEE_running-config.txt)
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname CMESwitch
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport access vlan 40
+ switchport mode access
+ switchport voice vlan 30
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 40
+ switchport mode access
+ switchport voice vlan 30
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+!
+end
+~~~
+
+## Remote
+~~~
+[Remote_running-config.txt](https://github.com/user-attachments/files/27351233/Remote_running-config.txt)
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname RemoteRouter
+!
+!
+!
+!
+ip dhcp excluded-address 10.30.2.1
+ip dhcp excluded-address 10.40.2.1
+!
+ip dhcp pool REMOTEVOICE
+ network 10.30.2.0 255.255.255.0
+ default-router 10.30.2.1
+ option 150 ip 10.30.2.1
+ip dhcp pool REMOTEDATA
+ network 10.40.2.0 255.255.255.0
+ default-router 10.40.2.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX10178885-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.1
+ encapsulation dot1Q 40
+ ip address 10.40.2.1 255.255.255.0
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 30
+ ip address 10.30.2.1 255.255.255.0
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ ip address 82.115.34.209 255.255.255.252
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router eigrp 100
+ network 82.0.0.0
+ network 10.0.0.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+dial-peer voice 1 voip
+ destination-pattern 1...
+ session target ipv4:82.115.34.210
+!
+telephony-service
+ max-ephones 10
+ max-dn 10
+ ip source-address 10.30.2.1 port 2000
+ auto assign 1 to 10
+!
+ephone-dn 1
+ number 2001
+!
+ephone 1
+ device-security-mode none
+ mac-address 0001.6445.B232
+ type 7960
+ button 1:1
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+~~~
+
+## REMOTE
+~~~
+[REMOTE_running-config.txt](https://github.com/user-attachments/files/27351244/REMOTE_running-config.txt)
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname RemoteSwitch
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport access vlan 40
+ switchport mode access
+ switchport voice vlan 30
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+!
+end
+~~~

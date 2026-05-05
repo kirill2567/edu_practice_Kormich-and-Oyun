@@ -1,4 +1,4 @@
-[RouterA_running-config.txt](https://github.com/user-attachments/files/27351111/RouterA_running-config.txt)# 2 Лабораторная работа №2. Базовая настройка IP-телефонов в среде Cisco Packet Tracer
+# 2 Лабораторная работа №2. Базовая настройка IP-телефонов в среде Cisco Packet Tracer
 
 
 ## Порядок выполнения работы
